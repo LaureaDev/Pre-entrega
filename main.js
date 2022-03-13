@@ -19,3 +19,4 @@ console.log(carrito);
 productos.forEach(elementoVerduras =>{
     console.log(elementoVerduras)
 })
+
