@@ -132,13 +132,6 @@ section.category-product .card {
     margin: 50px 0px;
 }
 
-.card-body a.btn-comprar {
-    background: #198754;
-    padding: 7px 30px;
-    border-radius: 50px;
-    color: #fff;
-}
-
 section.category-product .card:hover .card-body img {
     transform: scale(1.2);
 }
