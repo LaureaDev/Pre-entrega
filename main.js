@@ -1,80 +1,83 @@
-const compraResumen = (nombre, precio) => {
-    agregarCarrito (nombre, precio)
-    console.log(`Se agrego al carrito ${nombre} $ ${precio}`);
-    total += precio;  
-    console.log(total)
-}
-let compra;
-let total = 0;
+const divProductos = document.getElementById('listado-verduras')
 
-
-const agregarCarrito = (nombre, precio) => {
-    carrito.push(new Producto(nombre, precio))
-}
 const carrito = [];
 const productos = [
-    { id: 1, titulo: "Zanahoria", precio: 120 },
-    { id: 2, titulo: "CebollaC", precio: 110 },
-    { id: 3, titulo: "Brocoli", precio: 580 },
-    { id: 4, titulo: "Ajo", precio: 130 },
-    { id: 5, titulo: "Huevos", precio: 350 },
-    { id: 6, titulo: "Papas", precio: 150 },
-    { id: 7, titulo: "Choclos", precio: 250 },
-    { id: 8, titulo: "Tomates", precio: 245 },
+    { id: 1, titulo: "Zanahoria", precio: 120, imagen: 'zanahoria.png' },
+    { id: 2, titulo: "CebollaC", precio: 110, imagen: 'cebollac.png'},
+    { id: 3, titulo: "Brocoli", precio: 580, imagen: 'brocoli.png' },
+    { id: 4, titulo: "Ajo", precio: 130, imagen: 'ajo.png' },
+    { id: 5, titulo: "Huevos", precio: 350, imagen: 'huevos.png' },
+    { id: 6, titulo: "Papas", precio: 150, imagen: 'papas.png' },
+    { id: 7, titulo: "Choclos", precio: 250, imagen: 'choclos.png'},
+    { id: 8, titulo: "Tomates", precio: 245, imagen: 'tomates.png' }
 ]
-class Producto {
-    constructor(nombre, precio) {
-        this.nombre = nombre;
-        this.precio = parseInt(precio);
-    }
+console.log(divProductos)
+
+productos.forEach(element =>{
+    let card = document.createElement('div')
+
+   card.innerHTML = `
+   
+   <div class="col h-100" >
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <img src="img/${element.imagen}" alt="Zanahoria">
+            <h4>${element.titulo}</h4>
+            <h5 class="price">$ ${element.precio}</h5>
+            <button type="button" class="btn btn-outline-success">Agregar</button>
+        </div>
+    </div>
+    </div>
+
+`
+   divProductos.appendChild(card) 
+})
+
+agregarProductos ();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+function generarCards (productosAMostrar){
+    let acomuladorCards = ``;
+    productosAMostrar.forEach(element => {
+        acomuladorCards += ` <div class="col-lg-3" >
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <img src="img/${element.imagen}">
+                <h4>${element.titulo}</h4>
+                <h5 class="price">Precio por Kg: $120</h5>
+                <button type="button" class="btn btn-outline-success">Agregar</button>
+            </div>
+        </div>
+   </div>
+`
+mostrarCardHTML (acomuladorCards);
+    });
 }
 
-const usuario = prompt('Ingrese nombre: ')
-do {
-    const productosComprar = parseInt (prompt(`Ingrese el numero del producto que desea comprar:
-    1 - ${productos[0].titulo} $ ${productos[0].precio}
-    2 - ${productos[1].titulo} $ ${productos[1].precio}
-    3 - ${productos[2].titulo} $ ${productos[2].precio}
-    4 - ${productos[3].titulo} $ ${productos[3].precio}
-    5 - ${productos[4].titulo} $ ${productos[4].precio}
-    6 - ${productos[5].titulo} $ ${productos[5].precio}
-    7 - ${productos[6].titulo} $ ${productos[6].precio}
-    8 - ${productos[7].titulo} $ ${productos[7].precio}`));
-
-    switch (productosComprar){
-        case 1:
-            compraResumen (productos[0].titulo, productos[0].precio) 
-            break;
-        case 2:
-            compraResumen (productos[1].titulo, productos[1].precio) 
-            break;
-        case 3:
-            compraResumen (productos[2].titulo, productos[2].precio) 
-            break;
-        case 4:
-            compraResumen (productos[3].titulo, productos[3].precio) 
-            break;
-        case 5:
-            compraResumen (productos[4].titulo, productos[4].precio) 
-            break;
-        case 6:
-            compraResumen (productos[5].titulo, productos[5].precio) 
-            break;
-        case 7:
-            compraResumen (productos[6].titulo, productos[6].precio) 
-            break;
-        case 8:
-            compraResumen (productos[7].titulo, productos[7].precio) 
-            break;
-        
-        default: alert('Numero ingresado es incorrecto');
-        break;
-    }
-
-     compra = prompt('Deseas seguir comprando? S/N')
-
+ const mostrarCardHTML = (cards) =>{
+    document.getElementsById('#listado-verduras').innerHTML = cards;
 }
-    while (compra !== "n");
-console.log(carrito) 
-
-console.log(`El total de tu compra es: $ ${total}`)
+const listaDeCards = document.getElementById('listado-verduras')
+generarCards(productos); */

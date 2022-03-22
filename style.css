@@ -109,6 +109,8 @@ section.category-product .card {
     margin-bottom: 25px;
 }
 
+
+
 .price {
     font-size: 18px;
     font-weight: 400;
@@ -118,6 +120,7 @@ section.category-product .card {
 
 .card-body {
     text-align: center;
+
 }
 
 .card-body img {
@@ -136,10 +139,7 @@ section.category-product .card:hover .card-body img {
     transform: scale(1.2);
 }
 
-
-
 /* --------------- */
-
 
 ul.footer-list {
     margin: 0;
