@@ -24,17 +24,9 @@ a {
     color: var(--color-hover-navbar);
 }
 
-.navbar-nav a {
-    margin-right: 10px;
-    margin-left: 10px;
-    text-transform: uppercase;
-    color: var(--color-navbar);
-    font-family: 'Rubik', sans-serif;
-
-}
-
-.navbar-nav a:hover {
-    color: #ff9944;
+.nav-link {
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .search {

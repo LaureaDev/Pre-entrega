@@ -1,5 +1,3 @@
-const divProductos = document.getElementById('listado-verduras')
-
 const carrito = [];
 const productos = [
     { id: 1, titulo: "Zanahoria", precio: 120, imagen: 'zanahoria.png' },
@@ -11,73 +9,45 @@ const productos = [
     { id: 7, titulo: "Choclos", precio: 250, imagen: 'choclos.png'},
     { id: 8, titulo: "Tomates", precio: 245, imagen: 'tomates.png' }
 ]
-console.log(divProductos)
+const boton = document.getElementById('boton-buscar')
+const AgregarAlCarrito = (idProducto) =>{
+    const productoAgregado = productos.find(producto => producto.id === idProducto )
+    carrito.push(productoAgregado)
+   document.getElementById ("cantidad-prod").innerHTML = carrito.length;
+}
 
-productos.forEach(element =>{
-    let card = document.createElement('div')
-
-   card.innerHTML = `
-   
-   <div class="col h-100" >
-    <div class="card border-0 shadow-sm">
-        <div class="card-body">
-            <img src="img/${element.imagen}" alt="Zanahoria">
-            <h4>${element.titulo}</h4>
-            <h5 class="price">$ ${element.precio}</h5>
-            <button type="button" class="btn btn-outline-success">Agregar</button>
-        </div>
-    </div>
-    </div>
-
-`
-   divProductos.appendChild(card) 
-})
-
-agregarProductos ();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-function generarCards (productosAMostrar){
-    let acomuladorCards = ``;
-    productosAMostrar.forEach(element => {
-        acomuladorCards += ` <div class="col-lg-3" >
+const divProductos = document.getElementById('listado-verduras')
+generarCards(productos);
+function generarCards(productosAMostrar){
+    let acumuladorDeCards = ``;
+    productosAMostrar.forEach((element) => {
+        acumuladorDeCards += `<div class="col h-100" >
         <div class="card border-0 shadow-sm">
-            <div class="card-body">
-                <img src="img/${element.imagen}">
+            <div class="card-body" >
+                <img src="img/${element.imagen}" alt="Zanahoria">
                 <h4>${element.titulo}</h4>
-                <h5 class="price">Precio por Kg: $120</h5>
-                <button type="button" class="btn btn-outline-success">Agregar</button>
+                <h5 class="price">$ ${element.precio}</h5>
+                <button onclick="AgregarAlCarrito(${element.id})" type="button" class="btn btn-outline-success">Add to Cart</button>
             </div>
         </div>
-   </div>
-`
-mostrarCardHTML (acomuladorCards);
+        </div> `;
     });
+    mostrarCardsEnElHTML(acumuladorDeCards);
+
+}
+    function mostrarCardsEnElHTML(card) {
+    document.getElementById("listado-verduras").innerHTML = card;
+};
+
+function buscarProducto() {
+    const nombreProductoBuscado = document.getElementById("boton-buscar").value.toUpperCase().trim();
+
+    const productosEncontrados = productos.filter((producto) => {
+        return producto.titulo.toUpperCase().match(nombreProductoBuscado);
+    });
+
+    generarCards(productosEncontrados);
+
 }
 
- const mostrarCardHTML = (cards) =>{
-    document.getElementsById('#listado-verduras').innerHTML = cards;
-}
-const listaDeCards = document.getElementById('listado-verduras')
-generarCards(productos); */
+
