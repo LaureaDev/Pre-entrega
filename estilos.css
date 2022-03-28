@@ -51,6 +51,21 @@ a {
     font-weight: 600;
 }
 
+.fa-shopping-cart {
+    color: #5D6D7E;
+    font-size: 25px;
+}
+
+.fa-user {
+    margin-top: 5px;
+    padding-left: 10px;
+    font-size: 25px;
+    color: #5D6D7E;
+}
+
+.slide img {
+    width: 10%;
+}
 
 .slider {
     background: #f7f7f7f7;
@@ -61,6 +76,7 @@ a {
 .slider-text h2 {
     font-size: 68px;
     font-weight: 600;
+    height: 250px;
 }
 
 span.lighten {
@@ -86,22 +102,11 @@ span.lighten {
 
 }
 
-.slider-image img {
-    height: 100%;
-}
-
-
-.category-product {
-    padding: 55px 0px;
-}
-
 section.category-product .card {
     background: #f1f1f1;
     overflow: hidden;
     margin-bottom: 25px;
 }
-
-
 
 .price {
     font-size: 18px;
@@ -163,3 +168,6 @@ ul.footer-list li a:hover {
 .copyright-text a:hover {
     color: #bd8101;
 }
+
+
+/* ---------------------- */

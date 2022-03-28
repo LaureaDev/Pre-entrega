@@ -1,4 +1,15 @@
-const carrito = [];
+const carrito = validarStorageCarrito ();
+function validarStorageCarrito (){
+    if (localStorage.getItem("carrito") != null){
+        const storageProductos =  JSON.parse(localStorage.getItem("carrito"));
+        return storageProductos;
+    } else{
+        return[]
+    }
+}
+
+document.getElementById ("cantidad-prod").innerHTML = carrito.length;
+
 const productos = [
     { id: 1, titulo: "Zanahoria", precio: 120, imagen: 'zanahoria.png' },
     { id: 2, titulo: "CebollaC", precio: 110, imagen: 'cebollac.png'},
@@ -10,9 +21,15 @@ const productos = [
     { id: 8, titulo: "Tomates", precio: 245, imagen: 'tomates.png' }
 ]
 const boton = document.getElementById('boton-buscar')
+
 const AgregarAlCarrito = (idProducto) =>{
+    /* AGREGAR AL CARRITO */
     const productoAgregado = productos.find(producto => producto.id === idProducto )
     carrito.push(productoAgregado)
+
+    /* ACTUALIZANDO STORAGE  */
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    /* ACTUALIZANDO HTML */
    document.getElementById ("cantidad-prod").innerHTML = carrito.length;
 }
 
@@ -40,12 +57,12 @@ function generarCards(productosAMostrar){
 };
 
 function buscarProducto() {
-    const nombreProductoBuscado = document.getElementById("boton-buscar").value.toUpperCase().trim();
+    const nombreProductoBuscado = document.getElementById("producto-buscado").value.toUpperCase().trim();
 
     const productosEncontrados = productos.filter((producto) => {
         return producto.titulo.toUpperCase().match(nombreProductoBuscado);
     });
-
+ 
     generarCards(productosEncontrados);
 
 }
