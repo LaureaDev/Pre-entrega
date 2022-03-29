@@ -40,7 +40,7 @@ function generarCards(productosAMostrar){
                 <img src="img/${element.imagen}" alt="Zanahoria">
                 <h4>${element.titulo}</h4>
                 <h5 class="price">$ ${element.precio}</h5>
-                <button onclick="AgregarAlCarrito(${element.id})" type="button" class="btn btn-outline-success">Agregar</button>
+                <button onclick="AgregarAlCarrito(${element.id})" type="button" class="btn-comprar">Agregar</button>
                 <button onclick="irAlProducto(${element.id})" type="button" class="btn-ver-producto">Ver Producto</button>
             </div>
         </div>
