@@ -1,15 +1,3 @@
-const carrito = validarStorageCarrito ();
-function validarStorageCarrito (){
-    if (localStorage.getItem("carrito") != null){
-        const storageProductos =  JSON.parse(localStorage.getItem("carrito"));
-        return storageProductos;
-    } else{
-        return[]
-    }
-}
-
-document.getElementById ("cantidad-prod").innerHTML = carrito.length;
-
 const productos = [
     { id: 1, titulo: "Zanahoria", precio: 120, imagen: 'zanahoria.png' },
     { id: 2, titulo: "CebollaC", precio: 110, imagen: 'cebollac.png'},
@@ -33,6 +21,14 @@ const AgregarAlCarrito = (idProducto) =>{
    document.getElementById ("cantidad-prod").innerHTML = carrito.length;
 }
 
+const irAlProducto = (idProducto) =>{
+    /* BUSAR PRODUCTO */
+    const productoQuiereVer = productos.find(producto => producto.id === idProducto )
+    
+    /* ACTUALIZANDO STORAGE  */
+    localStorage.setItem("productoVer", JSON.stringify(productoQuiereVer))
+}
+
 const divProductos = document.getElementById('listado-verduras')
 generarCards(productos);
 function generarCards(productosAMostrar){
@@ -44,7 +40,8 @@ function generarCards(productosAMostrar){
                 <img src="img/${element.imagen}" alt="Zanahoria">
                 <h4>${element.titulo}</h4>
                 <h5 class="price">$ ${element.precio}</h5>
-                <button onclick="AgregarAlCarrito(${element.id})" type="button" class="btn btn-outline-success">Add to Cart</button>
+                <button onclick="AgregarAlCarrito(${element.id})" type="button" class="btn btn-outline-success">Agregar</button>
+                <button onclick="irAlProducto(${element.id})" type="button" class="btn-ver-producto">Ver Producto</button>
             </div>
         </div>
         </div> `;
