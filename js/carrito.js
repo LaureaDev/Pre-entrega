@@ -1,11 +1,8 @@
+
 const carrito = validarStorageCarrito ();
 function validarStorageCarrito (){
-    if (localStorage.getItem("carrito") != null){
-        const storageProductos =  JSON.parse(localStorage.getItem("carrito"));
-        return storageProductos;
-    } else{
-        return[]
-    }
-}
+    const validarStorageCarrito = JSON.parse(localStorage.getItem('carrito'))
+    validarStorageCarrito = null ? false : [];
 
+}
 document.getElementById ("cantidad-prod").innerHTML = carrito.length;

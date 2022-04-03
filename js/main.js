@@ -1,3 +1,4 @@
+
 const productos = [
     { id: 1, titulo: "Zanahoria", precio: 120, imagen: 'zanahoria.png' },
     { id: 2, titulo: "CebollaC", precio: 110, imagen: 'cebollac.png'},
